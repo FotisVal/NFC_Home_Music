@@ -3,26 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Spotify & Google Maps</title>
+    <title>Mini Cooper - Music & Maps</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        button { font-size: 20px; padding: 15px 30px; margin: 10px; cursor: pointer; }
-        #mapsBtn { display: none; } /* Hide Google Maps button initially */
+        body { 
+            background-color: #2b2b2b; /* Dark Gray */
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000; /* Black */
+            color: white;
+            font-size: 20px;
+            padding: 15px 30px;
+            margin: 15px auto;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            width: 220px;
+        }
+        .btn img {
+            width: 40px; /* Mini Cooper Logo Size */
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
     <h2>Tap below to start</h2>
-    <button onclick="openSpotify()">🎵 Play Music</button>
-    <br><br>
-    <button id="mapsBtn" onclick="openMaps()">📍 Navigate Home</button>
+
+    <button class="btn" onclick="openSpotify()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/MINI_logo.svg/512px-MINI_logo.svg.png" alt="Mini Logo">
+        Music
+    </button>
+
+    <button class="btn" onclick="openMaps()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/MINI_logo.svg/512px-MINI_logo.svg.png" alt="Mini Logo">
+        Maps
+    </button>
 
     <script>
         function openSpotify() {
             window.location.href = "spotify:track:1prgQKb9W0I6wAeLxROm3S"; 
-
-            setTimeout(function() {
-                document.getElementById("mapsBtn").style.display = "block"; // Show the Google Maps button after 2 sec
-            }, 2000);
         }
 
         function openMaps() {
