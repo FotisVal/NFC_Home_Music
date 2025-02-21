@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify to Google Maps</title>
     <script>
         function redirect() {
-            // Άνοιγμα του Spotify
-            window.location.href = "spotify:track:5E30LdtzQTGqRvNd7l6kG5"; 
-            
-            // Μετά από 1 δευτερόλεπτο, άνοιγμα του Google Maps
-            setTimeout(function() {
-                window.location.href = "https://www.google.com/maps/dir/?api=1&destination=Home";
-            }, 1000);
+            // Open Spotify with "Take Me Home, Country Roads" - John Denver
+            window.location.href = "spotify:track:1prgQKb9W0I6wAeLxROm3S"; 
+
+            // Open Google Maps app immediately after
+            window.location.href = "google.navigation:q=Home";
         }
     </script>
 </head>
 <body onload="redirect()">
-    <p>Άνοιγμα Spotify...</p>
+    <p>Opening Spotify...</p>
 </body>
 </html>
