@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify to Google Maps</title>
+    <title>Open Spotify & Google Maps</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        button { font-size: 20px; padding: 15px 30px; margin: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Tap below to start</h2>
+    <button onclick="openApps()">🎵 Play & Navigate 📍</button>
+
     <script>
-        function redirect() {
-            // Άνοιγμα του Spotify
-            window.location.href = "spotify:track:5E30LdtzQTGqRvNd7l6kG5"; 
-            
-            // Μετά από 2 δευτερόλεπτα, άνοιγμα του Google Maps
+        function openApps() {
+            // Open Spotify
+            window.location.href = "spotify:track:1prgQKb9W0I6wAeLxROm3S"; 
+
+            // Delay for 2 seconds, then open Google Maps
             setTimeout(function() {
-                window.location.href = "https://www.google.com/maps/dir/?api=1&destination=Home";
+                window.location.href = "google.navigation:q=Home";
             }, 2000);
         }
     </script>
-</head>
-<body onload="redirect()">
-    <p>Άνοιγμα Spotify...</p>
 </body>
 </html>
