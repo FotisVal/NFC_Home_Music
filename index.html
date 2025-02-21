@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify to Google Maps</title>
-    <script>
-        function redirect() {
-            // Open Spotify with "Take Me Home, Country Roads" - John Denver
-            window.location.href = "spotify:track:1prgQKb9W0I6wAeLxROm3S"; 
+    <title>Spotify & Google Maps Launcher</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        button { font-size: 18px; padding: 10px 20px; margin: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Tap to open:</h2>
+    <button onclick="openSpotify()">🎵 Play on Spotify</button>
+    <button onclick="openMaps()">📍 Navigate Home</button>
 
-            // Open Google Maps app immediately after
+    <script>
+        function openSpotify() {
+            window.location.href = "spotify:track:1prgQKb9W0I6wAeLxROm3S";
+        }
+
+        function openMaps() {
             window.location.href = "google.navigation:q=Home";
         }
     </script>
-</head>
-<body onload="redirect()">
-    <p>Opening Spotify...</p>
 </body>
 </html>
