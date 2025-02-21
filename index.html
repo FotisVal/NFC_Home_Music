@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open YouTube & Google Maps</title>
+    <title>Open Spotify & Google Maps</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
         button { font-size: 20px; padding: 15px 30px; margin: 10px; cursor: pointer; }
+        #mapsBtn { display: none; } /* Hide Google Maps button initially */
     </style>
 </head>
 <body>
     <h2>Tap below to start</h2>
-    <button onclick="openApps()">▶️ Play & Navigate 📍</button>
+    <button onclick="openSpotify()">🎵 Play Music</button>
+    <br><br>
+    <button id="mapsBtn" onclick="openMaps()">📍 Navigate Home</button>
 
     <script>
-        function openApps() {
-            // Open YouTube video
-            window.location.href = "https://www.youtube.com/watch?v=1vrEljMfXYo"; 
+        function openSpotify() {
+            window.location.href = "spotify:track:1prgQKb9W0I6wAeLxROm3S"; 
 
-            // Delay for 2 seconds, then open Google Maps
             setTimeout(function() {
-                window.location.href = "google.navigation:q=Home";
+                document.getElementById("mapsBtn").style.display = "block"; // Show the Google Maps button after 2 sec
             }, 2000);
+        }
+
+        function openMaps() {
+            window.location.href = "google.navigation:q=Home";
         }
     </script>
 </body>
