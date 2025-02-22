@@ -3,59 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Cooper NFC</title>
+    <title>Mini Cooper UI</title>
     <style>
         body {
             background-color: #333;
             color: white;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            position: relative;
-        }
-        .container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            flex-direction: column;
         }
         .button {
-            width: 200px;
-            height: 200px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+            background-color: #555;
+            color: white;
+            padding: 15px 30px;
+            margin: 10px;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
-            margin: 20px;
+            font-size: 18px;
         }
-        .music-button {
-            background-image: url('https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/IMG_20250222_023557.png');
-        }
-        .maps-button {
-            background-image: url('https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/IMG_20250222_023557.png');
-        }
-        .background-logo {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 150px;
-            opacity: 0.5;
+        .button:hover {
+            background-color: #777;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <button class="button music-button" onclick="playMusic()"></button>
-        <button class="button maps-button" onclick="openMaps()"></button>
-    </div>
-    <img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/IMG_20250222_023557.png" class="background-logo">
+    <button class="button" onclick="playMusic()">Play Music</button>
+    <button class="button" onclick="openMaps()">Open Maps</button>
+
     <script>
         function playMusic() {
-            window.location.href = "https://open.spotify.com/track/1Lh2dQ2OQSfxz8DOFNM6Xh";
+            window.location.href = "spotify:track:4szQkW1CDHqbRZGltXJdd3?si=469wTn_sQKyOTT6-hgq2wA";
         }
         function openMaps() {
-            window.location.href = "google.maps://?daddr=Home";
+            window.location.href = "https://www.google.com/maps/dir/?api=1&destination=home";
         }
     </script>
 </body>
