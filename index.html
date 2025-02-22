@@ -3,50 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Cooper Routine</title>
+    <title>Mini Cooper UI</title>
     <style>
         body {
             background-color: #333;
             color: white;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 2.5em;
-            margin-top: 20px;
-        }
-        h2 {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-        .button-container {
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin-top: 30px;
+            height: 100vh;
         }
         .button {
             background-color: #555;
             color: white;
-            border: none;
             padding: 15px 30px;
-            font-size: 1.5em;
-            border-radius: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 18px;
+        }
+        .button:hover {
+            background-color: #777;
         }
     </style>
 </head>
 <body>
-    <h1>Mini Cooper Routine</h1>
-    <h2>Press the button</h2>
-    <div class="button-container">
-        <button class="button" onclick="location.href='spotify:track:1QbOvACeYanja5pbnJbAmk?si=EzZtG054RjqB5ZaEoMe58g'">Play Music</button>
-        <button class="button" onclick="location.href='https://www.google.com/maps/dir/?api=1&destination=Home'">Take me Home Maps</button>
-    </div>
+    <button class="button" onclick="playMusic()">Play Music</button>
+    <button class="button" onclick="openMaps()">Open Maps</button>
+
+    <script>
+        function playMusic() {
+            window.location.href = "spotify:track:4szQkW1CDHqbRZGltXJdd3?si=469wTn_sQKyOTT6-hgq2wA";
+        }
+        function openMaps() {
+            window.location.href = "https://www.google.com/maps/dir/?api=1&destination=home";
+        }
+    </script>
 </body>
 </html>
