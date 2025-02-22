@@ -6,14 +6,15 @@
     <title>Mini Cooper Routine</title>
     <style>
         body {
-            background-color: #2c2c2c;
+            background-color: #333;
             color: white;
-            font-family: 'Arial', sans-serif;
             text-align: center;
+            font-family: Arial, sans-serif;
         }
         h1 {
-            font-family: 'Courier New', Courier, monospace; /* Προσέγγιση παλιού στυλ Mini Cooper */
+            font-family: 'Courier New', Courier, monospace;
             font-size: 2.5em;
+            margin-top: 20px;
         }
         h2 {
             font-size: 1.2em;
@@ -23,27 +24,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 80vh;
+            gap: 15px;
+            margin-top: 30px;
         }
         .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-            height: 50px;
-            background-color: #444;
+            background-color: #555;
             color: white;
-            font-size: 1.2em;
             border: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
             border-radius: 10px;
             cursor: pointer;
-            margin: 10px 0;
-        }
-        .button img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
     </style>
 </head>
@@ -52,10 +46,10 @@
     <h2>Press the button</h2>
     <div class="button-container">
         <button class="button" onclick="window.location.href='spotify:track:1QbOvACeYanja5pbnJbAmk?si=EzZtG054RjqB5ZaEoMe58g'">
-            <img src="music_icon.png" alt="Music"> Play Music
+            <img src="music_icon.png" alt="Music"> 🎵 Play Music
         </button>
         <button class="button" onclick="window.location.href='google.navigation:q=home'">
-            <img src="maps_icon.png" alt="Maps"> Open Maps
+            <img src="maps_icon.png" alt="Maps"> 📍🏡 Take me Home Maps
         </button>
     </div>
 </body>
