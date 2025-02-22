@@ -3,55 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Cooper - Music & Maps</title>
+    <title>Mini Cooper NFC</title>
     <style>
-        body { 
-            background-color: #2b2b2b; /* Dark Gray */
+        body {
+            background-color: #333;
             color: white;
-            font-family: Arial, sans-serif;
             text-align: center;
-            padding: 50px;
+            font-family: Arial, sans-serif;
+            position: relative;
         }
-        .btn {
+        .container {
             display: flex;
-            align-items: center;
             justify-content: center;
-            background-color: #000; /* Black */
-            color: white;
-            font-size: 20px;
-            padding: 15px 30px;
-            margin: 15px auto;
-            cursor: pointer;
-            border: none;
-            border-radius: 10px;
-            width: 220px;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
         }
-        .btn img {
-            width: 40px; /* Mini Cooper Logo Size */
-            margin-right: 10px;
+        .button {
+            width: 200px;
+            height: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+            margin: 20px;
+        }
+        .music-button {
+            background-image: url('https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/IMG_20250222_023557.png');
+        }
+        .maps-button {
+            background-image: url('https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/IMG_20250222_023557.png');
+        }
+        .background-logo {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 150px;
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
-    <h2>Tap below to start</h2>
-
-    <button class="btn" onclick="openSpotify()">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/MINI_logo.svg/512px-MINI_logo.svg.png" alt="Mini Logo">
-        Music
-    </button>
-
-    <button class="btn" onclick="openMaps()">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/MINI_logo.svg/512px-MINI_logo.svg.png" alt="Mini Logo">
-        Maps
-    </button>
-
+    <div class="container">
+        <button class="button music-button" onclick="playMusic()"></button>
+        <button class="button maps-button" onclick="openMaps()"></button>
+    </div>
+    <img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/IMG_20250222_023557.png" class="background-logo">
     <script>
-        function openSpotify() {
-            window.location.href = "spotify:track:1prgQKb9W0I6wAeLxROm3S"; 
+        function playMusic() {
+            window.location.href = "https://open.spotify.com/track/1Lh2dQ2OQSfxz8DOFNM6Xh";
         }
-
         function openMaps() {
-            window.location.href = "google.navigation:q=Home";
+            window.location.href = "google.maps://?daddr=Home";
         }
     </script>
 </body>
