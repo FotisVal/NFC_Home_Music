@@ -10,8 +10,7 @@
             color: white;
             text-align: center;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
+            position: relative;
         }
         h1 {
             font-family: 'Courier New', Courier, monospace;
@@ -41,11 +40,11 @@
             align-items: center;
             gap: 10px;
         }
-        .corner-image {
+        .logo {
             position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 128px;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
             height: auto;
         }
     </style>
@@ -54,9 +53,13 @@
     <h1>Mini Cooper Routine</h1>
     <h2>Press the button</h2>
     <div class="button-container">
-        <button class="button" onclick="window.location.href='https://open.spotify.com/track/1QbOvACeYanja5pbnJbAmk?si=EzZtG054RjqB5ZaEoMe58g'">  🎵 Play Music  </button>
-        <button class="button" onclick="window.location.href='https://www.google.com/maps/dir/?api=1&destination=home&travelmode=driving&dir_action=navigate'">    📍🏡 Take me Home Maps    </button>
+        <button class="button" onclick="window.location.href='spotify:track:1QbOvACeYanja5pbnJbAmk?si=EzZtG054RjqB5ZaEoMe58g'">
+            🎵 Play Music
+        </button>
+        <button class="button" onclick="window.location.href='https://www.google.com/maps/dir/?api=1&destination=home&travelmode=driving&navigate=true'">
+            📍🏡 Take me Home Maps
+        </button>
     </div>
-    <img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" class="corner-image">
+    <img class="logo" src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" alt="Mini Cooper Logo">
 </body>
 </html>
