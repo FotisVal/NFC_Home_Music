@@ -27,6 +27,7 @@
             position: relative;
             width: 100%;
             box-sizing: border-box;
+            height: 150px; /* Ύψος για το σκούρο φόντο, το οποίο περιλαμβάνει και τις δύο γραμμές του τίτλου */
         }
 
         .header h1 {
@@ -34,6 +35,11 @@
             color: orange;
             font-size: 2.5em;
             margin: 0;
+            position: absolute;
+            top: 50%; /* Μετακινεί το κείμενο ώστε να είναι κεντραρισμένο */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1.5em; /* Αυξάνει τον χώρο μεταξύ των γραμμών */
         }
 
         .header h1 span {
@@ -41,11 +47,7 @@
         }
 
         .header h1 span:first-child {
-            margin-bottom: 10px; /* Αυξήσαμε το κενό ανάμεσα στις δύο γραμμές */
-        }
-
-        .header h1 span:last-child {
-            margin-top: 40px; /* Μειώσαμε την απόσταση από το πάνω μέρος της γραμμής */
+            margin-bottom: 10px; /* Αυξάνει το κενό ανάμεσα στις δύο γραμμές */
         }
 
         .header::after {
