@@ -63,12 +63,17 @@
             let isAndroid = /Android/i.test(navigator.userAgent);
 
             if (isApple) {
-                window.location.href = "maps://?daddr=home&dirflg=d";
+                let useGoogleMaps = confirm("Do you want to use Google Maps instead of Apple Maps?");
+                if (useGoogleMaps) {
+                    window.location.href = "comgooglemaps://?daddr=home&directionsmode=driving";
+                } else {
+                    window.location.href = "maps://?daddr=home&dirflg=d";
+                }
             } else if (isAndroid) {
-                // 🚀 Σωστή εντολή που λειτουργεί ανεξαρτήτως γλώσσας!
-                window.location.href = "https://www.google.com/maps/dir/?api=1&destination=Home";
+                // Ξεκινάει ΑΥΤΟΜΑΤΑ η διαδρομή
+                window.location.href = "google.navigation:q=home&mode=d";
             } else {
-                window.location.href = "https://www.google.com/maps/dir/?api=1&destination=Home";
+                window.location.href = "https://www.google.com/maps/dir/?api=1&destination=Home&travelmode=driving";
             }
         }
     </script>
