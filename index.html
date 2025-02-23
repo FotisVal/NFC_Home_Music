@@ -64,16 +64,23 @@
     <img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" class="corner-image">
 
     <script>
-        // Ανιχνεύουμε τη γλώσσα του συστήματος
+        // Στατική διεύθυνση του σπιτιού σου
+        var homeAddress = "Your Home Address"; // Εδώ βάλε την πραγματική διεύθυνση του σπιτιού σου
+
+        // Ανιχνεύουμε τη γλώσσα του συστήματος (αυτό βοηθά για το user experience, αν θέλουμε να προσθέσουμε δυναμική)
         var language = navigator.language || navigator.userLanguage;
 
-        // Ορίζουμε το destination για τη διεύθυνση ή το 'home' ανάλογα με τη γλώσσα
-        var destination = (language === 'el') ? 'Διεύθυνση_σπιτιού' : 'home';
+        // Λειτουργία για την εύρεση του προορισμού
+        function getHomeDestination() {
+            // Για τη στιγμή, παραμένουμε με τη στατική διεύθυνση
+            return homeAddress;
+        }
 
-        // Ενημερώνουμε το URL για το "Take me Home Maps" κατά την κλικ
+        // Όταν πατηθεί το κουμπί "Take me Home Maps"
         document.getElementById("homeButton").onclick = function() {
+            var destination = getHomeDestination();  // Παίρνουμε την διεύθυνση
             var url = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(destination) + '&travelmode=driving&dir_action=navigate';
-            window.location.href = url;  // Αλλάζει το παράθυρο και ανακατευθύνει
+            window.location.href = url;  // Ανακατεύθυνση στο Google Maps
         };
     </script>
 </body>
