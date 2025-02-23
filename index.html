@@ -27,23 +27,23 @@
             position: relative;
             width: 100%;
             box-sizing: border-box;
-            height: 150px; /* Ύψος για το σκούρο φόντο, το οποίο περιλαμβάνει και τις δύο γραμμές του τίτλου */
+            height: 150px; /* Ύψος για το σκούρο φόντο */
         }
 
         .header h1 {
             font-family: 'CustomFont', sans-serif;
-            color: yellow;
+            color: orange;
             font-size: 2.5em;
             margin: 0;
             position: absolute;
-            top: 50%; /* Μετακινεί το κείμενο ώστε να είναι κεντραρισμένο */
+            top: 50%; /* Κεντραρισμένο κάθετα στο μισό του ύψους */
             left: 50%;
             transform: translate(-50%, -50%);
-            line-height: 1.5em; /* Αυξάνει τον χώρο μεταξύ των γραμμών */
+            line-height: 1.5em; /* Αυξάνει το κενό μεταξύ των γραμμών */
         }
 
         .header h1 span {
-            display: block;
+            display: block; /* Βάζει το "Routine" στην επόμενη γραμμή */
         }
 
         .header h1 span:first-child {
