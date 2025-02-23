@@ -70,11 +70,10 @@
         // Ορίζουμε το destination για τη διεύθυνση ή το 'home' ανάλογα με τη γλώσσα
         var destination = (language === 'el') ? 'Διεύθυνση_σπιτιού' : 'home';
 
-        // Ενημερώνουμε το URL για το "Take me Home Maps"
-        var homeButton = document.getElementById("homeButton");
-        homeButton.onclick = function() {
+        // Ενημερώνουμε το URL για το "Take me Home Maps" κατά την κλικ
+        document.getElementById("homeButton").onclick = function() {
             var url = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(destination) + '&travelmode=driving&dir_action=navigate';
-            window.location.href = url;
+            window.location.href = url;  // Αλλάζει το παράθυρο και ανακατευθύνει
         };
     </script>
 </body>
