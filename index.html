@@ -10,7 +10,6 @@
             color: white;
             text-align: center;
             font-family: Arial, sans-serif;
-            position: relative;
         }
         h1 {
             font-family: 'Courier New', Courier, monospace;
@@ -40,26 +39,38 @@
             align-items: center;
             gap: 10px;
         }
-        .logo {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 100px;
-            height: auto;
-        }
     </style>
 </head>
 <body>
     <h1>Mini Cooper Routine</h1>
     <h2>Press the button</h2>
     <div class="button-container">
-        <button class="button" onclick="window.location.href='spotify:track:1QbOvACeYanja5pbnJbAmk?si=EzZtG054RjqB5ZaEoMe58g'">
+        <button class="button" onclick="playSpotify()">
             🎵 Play Music
         </button>
-        <button class="button" onclick="window.location.href='https://www.google.com/maps/dir/?api=1&destination=home&travelmode=driving&navigate=true'">
+        <button class="button" onclick="navigateHome()">
             📍🏡 Take me Home Maps
         </button>
     </div>
-    <img class="logo" src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" alt="Mini Cooper Logo">
+
+    <script>
+        function playSpotify() {
+            window.location.href = "spotify:track:1QbOvACeYanja5pbnJbAmk?si=EzZtG054RjqB5ZaEoMe58g";
+        }
+
+        function navigateHome() {
+            let isApple = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+            let isAndroid = /Android/i.test(navigator.userAgent);
+
+            if (isApple) {
+                window.location.href = "maps://?daddr=home&dirflg=d";
+            } else if (isAndroid) {
+                // 🚀 Σωστή εντολή που λειτουργεί ανεξαρτήτως γλώσσας!
+                window.location.href = "https://www.google.com/maps/dir/?api=1&destination=Home";
+            } else {
+                window.location.href = "https://www.google.com/maps/dir/?api=1&destination=Home";
+            }
+        }
+    </script>
 </body>
 </html>
