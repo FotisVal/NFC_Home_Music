@@ -39,43 +39,40 @@
             align-items: center;
             gap: 10px;
         }
+        .logo {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 120px;
+            height: auto;
+            opacity: 0.8;
+        }
     </style>
-</head>
-<body>
-    <h1>Mini Cooper Routine</h1>
-    <h2>Press the button</h2>
-    <div class="button-container">
-        <button class="button" onclick="playSpotify()">
-            🎵 Play Music
-        </button>
-        <button class="button" onclick="navigateHome()">
-            📍🏡 Take me Home Maps
-        </button>
-    </div>
-
     <script>
-        function playSpotify() {
-            window.location.href = "spotify:track:1QbOvACeYanja5pbnJbAmk?si=EzZtG054RjqB5ZaEoMe58g";
+        function openMusic() {
+            window.location.href = "https://open.spotify.com/track/1QbOvACeYanja5pbnJbAmk";
         }
 
-        function navigateHome() {
-            let isApple = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-            let isAndroid = /Android/i.test(navigator.userAgent);
-
-            if (isApple) {
-                let useGoogleMaps = confirm("Do you want to use Google Maps instead of Apple Maps?");
-                if (useGoogleMaps) {
-                    window.location.href = "comgooglemaps://?daddr=home&directionsmode=driving";
-                } else {
-                    window.location.href = "maps://?daddr=home&dirflg=d";
-                }
-            } else if (isAndroid) {
-                // Ξεκινάει ΑΥΤΟΜΑΤΑ η διαδρομή
-                window.location.href = "google.navigation:q=home&mode=d";
+        function openMaps() {
+            if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
+                window.location.href = "maps://?daddr=home&dirflg=d";
             } else {
                 window.location.href = "https://www.google.com/maps/dir/?api=1&destination=Home&travelmode=driving";
             }
         }
     </script>
+</head>
+<body>
+    <h1>Mini Cooper Routine</h1>
+    <h2>Press the button</h2>
+    <div class="button-container">
+        <button class="button" onclick="openMusic()">
+            🎵 Play Music
+        </button>
+        <button class="button" onclick="openMaps()">
+            📍🏡 Take me Home Maps
+        </button>
+    </div>
+    <img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" class="logo" alt="Mini Cooper Logo">
 </body>
 </html>
