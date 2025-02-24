@@ -5,17 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Cooper Routine</title>
     <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/9086892e1cfb13d0e3f10e926b5b318df55aa4dd/fonts/GRAYSTROKE%20ITALIC.otf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             background-color: #333;
-            color: pink;
+            color: white;
             text-align: center;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        h1 {
-            font-family: 'Courier New', Courier, monospace;
+
+        .header {
+            background-color: #222;
+            padding: 12px 0;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            height: 108px; /* Ύψος για το σκούρο φόντο */
+        }
+
+        .header h1 {
+            font-family: 'CustomFont', sans-serif;
+            color: yellow;
             font-size: 2.5em;
-            margin-top: 20px;
+            margin: 0;
+            line-height: 1.2em; /* Αυξάνει το κενό μεταξύ των γραμμών */
         }
+
+        .header h1 span {
+            display: block; /* Βάζει το "Routine" στην επόμενη γραμμή */
+        }
+
+        .header h1 span:first-child {
+            margin-bottom: 0px; /* Αυξάνει το κενό ανάμεσα στις δύο γραμμές */
+        }
+
+        .header::after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #777;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        h2 {
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            color: #bbb;
+        }
+
         .button-container {
             display: flex;
             flex-direction: column;
@@ -23,42 +70,46 @@
             gap: 15px;
             margin-top: 30px;
         }
+
         .button {
             background-color: #555;
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 15px 40px;
             font-size: 1.5em;
             border-radius: 10px;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 10px;
+            width: 270px;
+            height: 60px;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .corner-image {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 128px;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <h1>Mini Cooper Routine</h1>
+    <div class="header">
+        <h1><span>Mini Cooper</span><span>Routine</span></h1>
+    </div>
+    <h2>Press the button</h2>
     <div class="button-container">
-        <button class="button" onclick="navigateHome()">
-    📍 Take me Home
-</button>
-
-<script>
-    async function navigateHome() {
-        try {
-            const response = await fetch('http://2a02:587:3209:2f00:cab8:d7b0:d5a1:fe43:3000/navigate-home');
-            if (!response.ok) {
-                throw new Error('Error fetching home location');
-            }
-            // Ανακατευθύνει τον χρήστη στο Google Maps
-            window.location.href = response.url;
-        } catch (error) {
-            alert('Error fetching home location. Please try again.');
-        }
-    }
-</script>
-
-
+        <button class="button" onclick="window.location.href='https://open.spotify.com/track/1QbOvACeYanja5pbnJbAmk?si=EzZtG054RjqB5ZaEoMe58g'">
+            🎵 Play Music
+        </button>
+        <button class="button" onclick="window.location.href='https://www.google.com/maps/dir/?api=1&destination=home&travelmode=driving&dir_action=navigate'">
+            📍🏡 Take me Home Maps
+        </button>
+    </div>
+    <img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" class="corner-image">
 </body>
 </html>
