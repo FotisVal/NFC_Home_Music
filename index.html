@@ -40,25 +40,25 @@
 <body>
     <h1>Mini Cooper Routine</h1>
     <div class="button-container">
-        <button class="button" onclick="navigateHome()">📍 Take me Home</button>
+        <button class="button" onclick="navigateHome()">
+    📍 Take me Home
+</button>
 
 <script>
-async function navigateHome() {
-    try {
-        const response = await fetch("http://localhost:3000/getHomeLocation?token=YOUR_USER_TOKEN");
-        const data = await response.json();
-
-        if (data.address) {
-            const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(data.address)}&travelmode=driving&dir_action=navigate`;
-            window.location.href = mapsUrl;
-        } else {
-            alert("Could not find home location.");
+    async function navigateHome() {
+        try {
+            const response = await fetch('http://localhost:3000/navigate-home');
+            if (!response.ok) {
+                throw new Error('Error fetching home location');
+            }
+            // Ανακατευθύνει τον χρήστη στο Google Maps
+            window.location.href = response.url;
+        } catch (error) {
+            alert('Error fetching home location. Please try again.');
         }
-    } catch (error) {
-        alert("Error fetching home location.");
     }
-}
 </script>
+
 
 </body>
 </html>
