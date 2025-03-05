@@ -140,7 +140,7 @@
       const homeLabel = homeTranslations[langCode] || 'home'; // Default to 'home' if language not found
 
       // Create the base Google Maps URL
-      const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${homeLabel}`;
+      const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${homeLabel}&travelmode=driving&dir_action=navigate`;
 
       // Open the navigation link (in a new tab or the current tab)
       window.open(mapsUrl, "_blank");
