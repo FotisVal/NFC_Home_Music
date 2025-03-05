@@ -106,10 +106,46 @@
         <button class="button" onclick="window.location.href='https://open.spotify.com/track/1QbOvACeYanja5pbnJbAmk?si=EzZtG054RjqB5ZaEoMe58g'">
             🎵 Play Music
         </button>
-        <button class="button" onclick="window.location.href='https://www.google.com/maps/dir/?api=1&destination=home&travelmode=driving&dir_action=navigate'">
+        <button class="button" onclick="navigateToHome()">
             📍 Take me Home
         </button>
     </div>
     <img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" class="corner-image">
+
+  <script>
+    // Translation map for 'Home' in different languages
+    const homeTranslations = {
+      'en': 'home', // English
+      'es': 'casa', // Spanish
+      'fr': 'domicile', // French
+      'de': 'heim', // German
+      'it': 'casa', // Italian
+      'pt': 'casa', // Portuguese
+      'ru': 'дом', // Russian
+      'zh': '家', // Chinese (Simplified)
+      'ja': '家', // Japanese
+      'ko': '집', // Korean
+      'el': 'σπίτι', // Greek
+      // Add more languages as needed
+    };
+
+    function navigateToHome() {
+      // Detect the user's language (e.g., en, es, fr, etc.)
+      const userLang = navigator.language || navigator.userLanguage;
+
+      // Extract the first part of the language code (e.g., 'en' from 'en-US')
+      const langCode = userLang.split('-')[0];
+
+      // Get the appropriate translation for 'Home'
+      const homeLabel = homeTranslations[langCode] || 'home'; // Default to 'home' if language not found
+
+      // Create the base Google Maps URL
+      const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${homeLabel}`;
+
+      // Open the navigation link (in a new tab or the current tab)
+      window.open(mapsUrl, "_blank");
+    }
+  </script>
+    
 </body>
 </html>
