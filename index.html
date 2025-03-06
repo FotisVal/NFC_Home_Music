@@ -131,7 +131,7 @@
 
     function navigateToHome() {
       // Detect the user's language (e.g., en, es, fr, etc.)
-      const userLang = navigator.language || navigator.userLanguage;
+      const userLang = Intl.DateTimeFormat().resolvedOptions().locale || navigator.language || navigator.userLanguage;
 
       // Extract the first part of the language code (e.g., 'en' from 'en-US')
       const langCode = userLang.split('-')[0];
