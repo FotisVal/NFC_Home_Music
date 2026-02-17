@@ -1,153 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Cooper Routine</title>
-    <style>
-        @font-face {
-            font-family: 'CustomFont';
-            src: url('https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/9086892e1cfb13d0e3f10e926b5b318df55aa4dd/fonts/GRAYSTROKE%20ITALIC.otf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Cooper Routine</title>
 
-        body {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+@font-face {
+    font-family: 'CustomFont';
+    src: url('https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/9086892e1cfb13d0e3f10e926b5b318df55aa4dd/fonts/GRAYSTROKE%20ITALIC.otf') format('truetype');
+}
 
-        .header {
-            background-color: #222;
-            padding: 12px 0;
-            position: relative;
-            width: 100%;
-            box-sizing: border-box;
-            height: 108px; /* Ύψος για το σκούρο φόντο */
-        }
+body {
+    background: linear-gradient(180deg, #1f1f1f, #3a3a3a);
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
 
-        .header h1 {
-            font-family: 'CustomFont', sans-serif;
-            color: yellow;
-            font-size: 2.5em;
-            margin: 0;
-            line-height: 1.2em; /* Αυξάνει το κενό μεταξύ των γραμμών */
-        }
+.header {
+    background: #111;
+    padding: 18px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
 
-        .header h1 span {
-            display: block; /* Βάζει το "Routine" στην επόμενη γραμμή */
-        }
+.header h1 {
+    font-family: 'CustomFont', sans-serif;
+    color: #FFD700;
+    font-size: 2.6em;
+    margin: 0;
+}
 
-        .header h1 span:first-child {
-            margin-bottom: 0px; /* Αυξάνει το κενό ανάμεσα στις δύο γραμμές */
-        }
+h2 {
+    font-weight: normal;
+    color: #bbb;
+}
 
-        .header::after {
-            content: "";
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: #777;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 30px;
+}
 
-        h2 {
-            font-size: 0.9em;
-            margin-bottom: 30px;
-            color: #bbb;
-        }
+.button {
+    background: #2b2b2b;
+    border: none;
+    padding: 16px 30px;
+    font-size: 1.3em;
+    border-radius: 16px;
+    cursor: pointer;
+    width: 260px;
+    color: white;
+    transition: 0.25s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
 
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
+.button:hover {
+    background: #444;
+    transform: translateY(-2px) scale(1.03);
+}
 
-        .button {
-            background-color: #555;
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.5em;
-            border-radius: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            width: 270px;
-            height: 60px;
-            justify-content: center;
-            white-space: nowrap;
-        }
+.call { background: #0a7cff; }
+.call:hover { background: #2891ff; }
 
-        .corner-image {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 128px;
-            height: auto;
-        }
-    </style>
+.spotify { background: #1DB954; }
+.spotify:hover { background: #31d86e; }
+
+.home { background: #ff3b30; }
+.home:hover { background: #ff5c54; }
+
+.corner-image {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    width: 110px;
+    opacity: 0.9;
+}
+</style>
 </head>
+
 <body>
-    <div class="header">
-        <h1><span>Mini Cooper</span><span>Routine</span></h1>
-    </div>
-    <h2>Press the button</h2>
-    <div class="button-container">
-         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1E39oixsPcANo4?utm_source=generator" width="70%" height="180" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <!-- Κουμπί τηλεφώνου -->
-    <a href="tel:+306983718263" class="button">
+
+<div class="header">
+    <h1>Mini Cooper Routine</h1>
+</div>
+
+<h2>Press the button</h2>
+
+<div class="button-container">
+
+    <!-- Spotify Embed -->
+    <iframe style="border-radius:14px"
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1E39oixsPcANo4"
+        width="85%" height="180" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+
+    <!-- Open Spotify App -->
+    <a href="https://open.spotify.com/playlist/37i9dQZF1E39oixsPcANo4" class="button spotify">
+        🎵 Open in Spotify
+    </a>
+
+    <!-- Phone Call -->
+    <a href="tel:+3069XXXXXXXX" class="button call">
         📞 Call
     </a>
-        <button class="button" onclick="navigateToHome()">
-            📍 Take me Home
-        </button>
-    </div>
-    <img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" class="corner-image">
 
-  <script>
-    // Translation map for 'Home' in different languages
-    const homeTranslations = {
-      'en': 'home', // English
-      'es': 'casa', // Spanish
-      'fr': 'domicile', // French
-      'de': 'heim', // German
-      'it': 'casa', // Italian
-      'pt': 'casa', // Portuguese
-      'ru': 'дом', // Russian
-      'zh': '家', // Chinese (Simplified)
-      'ja': '家', // Japanese
-      'ko': '집', // Korean
-      'el': 'σπίτι', // Greek
-      // Add more languages as needed
-    };
+    <!-- Take Me Home -->
+    <button class="button home" onclick="navigateToHome()">
+        📍 Take me Home
+    </button>
 
-    function navigateToHome() {
-      // Detect the user's language (e.g., en, es, fr, etc.)
-      const userLang = Intl.DateTimeFormat().resolvedOptions().locale || navigator.language || navigator.userLanguage;
+</div>
 
-      // Extract the first part of the language code (e.g., 'en' from 'en-US')
-      const langCode = userLang.split('-')[0];
+<img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" class="corner-image">
 
-      // Get the appropriate translation for 'Home'
-      const homeLabel = homeTranslations[langCode] || 'home'; // Default to 'home' if language not found
+<script>
+const homeTranslations = {
+  en: "home",
+  es: "casa",
+  fr: "domicile",
+  de: "heim",
+  it: "casa",
+  pt: "casa",
+  ru: "дом",
+  zh: "家",
+  ja: "家",
+  ko: "집",
+  el: "σπίτι"
+};
 
-      // Create the base Google Maps URL
-      const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${homeLabel}&travelmode=driving&dir_action=navigate`;
+function navigateToHome() {
+  const userLang = Intl.DateTimeFormat().resolvedOptions().locale || navigator.language;
+  const langCode = userLang.split("-")[0];
+  const homeLabel = homeTranslations[langCode] || "home";
 
-      // Open the navigation link (in a new tab or the current tab)
-      window.open(mapsUrl, "_blank");
-    }
-  </script>
-   
+  const mapsUrl =
+    `https://www.google.com/maps/dir/?api=1&destination=${homeLabel}&travelmode=driving&dir_action=navigate`;
+
+  window.open(mapsUrl, "_blank");
+}
+</script>
+
 </body>
 </html>
