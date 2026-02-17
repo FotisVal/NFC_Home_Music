@@ -12,7 +12,7 @@
 }
 
 body {
-    background: linear-gradient(180deg, #1f1f1f, #3a3a3a);
+    background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
     color: white;
     text-align: center;
     font-family: Arial, sans-serif;
@@ -20,86 +20,74 @@ body {
 }
 
 .header {
-    background: #111;
+    background: rgba(0,0,0,0.4);
     padding: 18px 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
 }
 
 .header h1 {
     font-family: 'CustomFont', sans-serif;
     color: #FFD700;
-    font-size: 2.6em;
+    font-size: 2.4em;
     margin: 0;
 }
 
-h2 {
-    font-weight: normal;
-    color: #bbb;
-}
-
-.button-container {
+.dashboard {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
-    margin-top: 25px;
+    gap: 14px;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    padding: 16px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.temp {
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+.desc {
+    color: #ddd;
 }
 
 .button {
     background: #2b2b2b;
     border: none;
-    padding: 16px 30px;
-    font-size: 1.3em;
-    border-radius: 16px;
+    padding: 15px 26px;
+    font-size: 1.2em;
+    border-radius: 14px;
     cursor: pointer;
-    width: 260px;
+    width: 240px;
     color: white;
     transition: 0.25s;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-}
-
-.button:hover {
-    background: #444;
-    transform: translateY(-2px) scale(1.03);
+    margin-top: 6px;
 }
 
 .call { background: #0a7cff; }
-.call:hover { background: #2891ff; }
-
 .home { background: #ff3b30; }
-.home:hover { background: #ff5c54; }
 
-.spotify-box {
-    background: rgba(255,255,255,0.05);
-    padding: 18px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    width: 90%;
-    max-width: 420px;
+.spotify-box iframe {
+    width: 100%;
+    border-radius: 12px;
 }
 
 .open-spotify {
     display: inline-block;
-    margin-top: 12px;
+    margin-top: 10px;
     background: #1DB954;
-    padding: 12px 22px;
-    border-radius: 12px;
+    padding: 10px 18px;
+    border-radius: 10px;
     text-decoration: none;
     color: white;
     font-weight: bold;
-    transition: 0.2s;
-}
-
-.open-spotify:hover {
-    background: #31d86e;
-}
-
-.corner-image {
-    position: fixed;
-    bottom: 12px;
-    right: 12px;
-    width: 110px;
-    opacity: 0.9;
 }
 </style>
 </head>
@@ -107,27 +95,30 @@ h2 {
 <body>
 
 <div class="header">
-    <h1>Mini Cooper Routine</h1>
+    <h1>Mini Cooper Dashboard</h1>
 </div>
 
-<h2>Tap NFC and go 🚗</h2>
+<div class="dashboard">
 
-<div class="button-container">
+    <!-- WEATHER CARD -->
+    <div class="card">
+        <div id="weatherCity">Loading weather...</div>
+        <div class="temp" id="weatherTemp"></div>
+        <div class="desc" id="weatherDesc"></div>
+    </div>
 
-    <!-- AUTO CALL BUTTON (hidden trigger) -->
-    <a id="autoCall" href="tel:+306983718263"></a>
+    <!-- CALL & NAVIGATION -->
+    <div class="card">
+        <button class="button call" onclick="makeCall()">📞 Call Home</button>
+        <button class="button home" onclick="navigateToHome()">📍 Take me Home</button>
+    </div>
 
-    <!-- Visible Call Button -->
-    <button class="button call" onclick="makeCall()">📞 Call Home</button>
-
-    <!-- Take Me Home -->
-    <button class="button home" onclick="navigateToHome()">📍 Take me Home</button>
-
-    <!-- Spotify Box -->
-    <div class="spotify-box">
-        <iframe style="border-radius:14px"
+    <!-- SPOTIFY -->
+    <div class="card spotify-box">
+        <iframe
             src="https://open.spotify.com/embed/playlist/37i9dQZF1E39oixsPcANo4"
-            width="100%" height="180" frameborder="0"
+            height="160"
+            frameborder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
         </iframe>
 
@@ -138,45 +129,49 @@ h2 {
 
 </div>
 
-<img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" class="corner-image">
-
 <script>
-// ===== AUTO CALL WITHOUT GREEN BUTTON =====
+// ===== AUTO CALL =====
 function makeCall() {
-  window.location.href = "tel:+306983718263";
+  window.location.href = "tel:+3069XXXXXXXX";
 }
 
-// Optional: auto‑call after NFC open (1.2 sec delay so browser allows it)
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    makeCall();
-  }, 1200);
-});
+// ===== WEATHER =====
+async function loadWeather() {
+  try {
+    const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=37.98&longitude=23.72&current_weather=true");
+    const data = await res.json();
 
-// ===== NAVIGATE HOME =====
+    document.getElementById("weatherCity").innerText = "Athens τώρα";
+    document.getElementById("weatherTemp").innerText = data.current_weather.temperature + "°C";
+    document.getElementById("weatherDesc").innerText = "Άνεμος " + data.current_weather.windspeed + " km/h";
+  } catch {
+    document.getElementById("weatherCity").innerText = "Weather unavailable";
+  }
+}
+
+loadWeather();
+
+// ===== NAVIGATION =====
 const homeTranslations = {
   en: "home",
-  es: "casa",
-  fr: "domicile",
-  de: "heim",
-  it: "casa",
-  pt: "casa",
-  ru: "дом",
-  zh: "家",
-  ja: "家",
-  ko: "집",
   el: "σπίτι"
 };
 
 function navigateToHome() {
-  const userLang = Intl.DateTimeFormat().resolvedOptions().locale || navigator.language;
-  const langCode = userLang.split("-")[0];
-  const homeLabel = homeTranslations[langCode] || "home";
+  const userLang = navigator.language.split("-")[0];
+  const homeLabel = homeTranslations[userLang] || "home";
 
   const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${homeLabel}&travelmode=driving&dir_action=navigate`;
 
   window.open(mapsUrl, "_blank");
 }
+
+// ===== OPTIONAL AUTO CALL AFTER NFC =====
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    makeCall();
+  }, 1200);
+});
 </script>
 
 </body>
