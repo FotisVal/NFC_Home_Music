@@ -1,178 +1,149 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mini Cooper Routine</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Cooper Routine</title>
+    <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/9086892e1cfb13d0e3f10e926b5b318df55aa4dd/fonts/GRAYSTROKE%20ITALIC.otf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-<style>
-@font-face {
-    font-family: 'CustomFont';
-    src: url('https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/9086892e1cfb13d0e3f10e926b5b318df55aa4dd/fonts/GRAYSTROKE%20ITALIC.otf') format('truetype');
-}
+        body {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-    background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
-    color: white;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-}
+        .header {
+            background-color: #222;
+            padding: 12px 0;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            height: 108px; /* Ύψος για το σκούρο φόντο */
+        }
 
-.header {
-    background: rgba(0,0,0,0.4);
-    padding: 18px 0;
-    backdrop-filter: blur(8px);
-}
+        .header h1 {
+            font-family: 'CustomFont', sans-serif;
+            color: yellow;
+            font-size: 2.5em;
+            margin: 0;
+            line-height: 1.2em; /* Αυξάνει το κενό μεταξύ των γραμμών */
+        }
 
-.header h1 {
-    font-family: 'CustomFont', sans-serif;
-    color: #FFD700;
-    font-size: 2.4em;
-    margin: 0;
-}
+        .header h1 span {
+            display: block; /* Βάζει το "Routine" στην επόμενη γραμμή */
+        }
 
-.dashboard {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-}
+        .header h1 span:first-child {
+            margin-bottom: 0px; /* Αυξάνει το κενό ανάμεσα στις δύο γραμμές */
+        }
 
-.card {
-    background: rgba(255,255,255,0.08);
-    padding: 16px;
-    border-radius: 18px;
-    width: 90%;
-    max-width: 420px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
+        .header::after {
+            content: "";
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #777;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
 
-.temp {
-    font-size: 2.2em;
-    font-weight: bold;
-}
+        h2 {
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            color: #bbb;
+        }
 
-.desc {
-    color: #ddd;
-}
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
 
-.button {
-    background: #2b2b2b;
-    border: none;
-    padding: 15px 26px;
-    font-size: 1.2em;
-    border-radius: 14px;
-    cursor: pointer;
-    width: 240px;
-    color: white;
-    transition: 0.25s;
-    margin-top: 6px;
-}
+        .button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5em;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 270px;
+            height: 60px;
+            justify-content: center;
+            white-space: nowrap;
+        }
 
-.call { background: #0a7cff; }
-.home { background: #ff3b30; }
-
-.spotify-box iframe {
-    width: 100%;
-    border-radius: 12px;
-}
-
-.open-spotify {
-    display: inline-block;
-    margin-top: 10px;
-    background: #1DB954;
-    padding: 10px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-</style>
+        .corner-image {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 128px;
+            height: auto;
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="header">
-    <h1>Mini Cooper Dashboard</h1>
-</div>
-
-<div class="dashboard">
-
-    <!-- WEATHER CARD -->
-    <div class="card">
-        <div id="weatherCity">Loading weather...</div>
-        <div class="temp" id="weatherTemp"></div>
-        <div class="desc" id="weatherDesc"></div>
+    <div class="header">
+        <h1><span>Mini Cooper</span><span>Routine</span></h1>
     </div>
-
-    <!-- CALL & NAVIGATION -->
-    <div class="card">
-        <button class="button call" onclick="makeCall()">📞 Call Home</button>
-        <button class="button home" onclick="navigateToHome()">📍 Take me Home</button>
+    <h2>Press the button</h2>
+    <div class="button-container">
+         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1E39oixsPcANo4?utm_source=generator" width="70%" height="180" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <button class="button" onclick="navigateToHome()">
+            📍 Take me Home
+        </button>
     </div>
+    <img src="https://raw.githubusercontent.com/FotisVal/NFC_Home_Music/main/pngegg.png" class="corner-image">
 
-    <!-- SPOTIFY -->
-    <div class="card spotify-box">
-        <iframe
-            src="https://open.spotify.com/embed/playlist/37i9dQZF1E39oixsPcANo4"
-            height="160"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-        </iframe>
+  <script>
+    // Translation map for 'Home' in different languages
+    const homeTranslations = {
+      'en': 'home', // English
+      'es': 'casa', // Spanish
+      'fr': 'domicile', // French
+      'de': 'heim', // German
+      'it': 'casa', // Italian
+      'pt': 'casa', // Portuguese
+      'ru': 'дом', // Russian
+      'zh': '家', // Chinese (Simplified)
+      'ja': '家', // Japanese
+      'ko': '집', // Korean
+      'el': 'σπίτι', // Greek
+      // Add more languages as needed
+    };
 
-        <a href="https://open.spotify.com/playlist/37i9dQZF1E39oixsPcANo4" class="open-spotify">
-            Open Full Spotify
-        </a>
-    </div>
+    function navigateToHome() {
+      // Detect the user's language (e.g., en, es, fr, etc.)
+      const userLang = Intl.DateTimeFormat().resolvedOptions().locale || navigator.language || navigator.userLanguage;
 
-</div>
+      // Extract the first part of the language code (e.g., 'en' from 'en-US')
+      const langCode = userLang.split('-')[0];
 
-<script>
-// ===== AUTO CALL =====
-function makeCall() {
-  window.location.href = "tel:+3069XXXXXXXX";
-}
+      // Get the appropriate translation for 'Home'
+      const homeLabel = homeTranslations[langCode] || 'home'; // Default to 'home' if language not found
 
-// ===== WEATHER =====
-async function loadWeather() {
-  try {
-    const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=37.98&longitude=23.72&current_weather=true");
-    const data = await res.json();
+      // Create the base Google Maps URL
+      const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${homeLabel}&travelmode=driving&dir_action=navigate`;
 
-    document.getElementById("weatherCity").innerText = "Athens τώρα";
-    document.getElementById("weatherTemp").innerText = data.current_weather.temperature + "°C";
-    document.getElementById("weatherDesc").innerText = "Άνεμος " + data.current_weather.windspeed + " km/h";
-  } catch {
-    document.getElementById("weatherCity").innerText = "Weather unavailable";
-  }
-}
-
-loadWeather();
-
-// ===== NAVIGATION =====
-const homeTranslations = {
-  en: "home",
-  el: "σπίτι"
-};
-
-function navigateToHome() {
-  const userLang = navigator.language.split("-")[0];
-  const homeLabel = homeTranslations[userLang] || "home";
-
-  const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${homeLabel}&travelmode=driving&dir_action=navigate`;
-
-  window.open(mapsUrl, "_blank");
-}
-
-// ===== OPTIONAL AUTO CALL AFTER NFC =====
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    makeCall();
-  }, 1200);
-});
-</script>
-
+      // Open the navigation link (in a new tab or the current tab)
+      window.open(mapsUrl, "_blank");
+    }
+  </script>
+   
 </body>
 </html>
